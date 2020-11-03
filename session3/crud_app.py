@@ -1,6 +1,5 @@
 items = ['T-shirt', 'Sweater', 'Hoodie']
 
-
 while True:
     command = input('Welcome to our shop, what do you want? (C,R,U,D): ').lower()
 
