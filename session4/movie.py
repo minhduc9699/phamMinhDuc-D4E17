@@ -80,5 +80,6 @@ data = {
             "overview": "When John Rambo's niece travels to Mexico to find the father that abandoned her and her mother, she finds herself in the grasps of Calle Mexican sex traffickers. When she doesn't return home as expected, John learns she's crossed into Mexico and sets out to get her back and make them pay.",
             "release_date": "2019-09-20"
         },
-    
+
+    ]
 }
