@@ -80,6 +80,23 @@ data = {
             "overview": "When John Rambo's niece travels to Mexico to find the father that abandoned her and her mother, she finds herself in the grasps of Calle Mexican sex traffickers. When she doesn't return home as expected, John learns she's crossed into Mexico and sets out to get her back and make them pay.",
             "release_date": "2019-09-20"
         },
-
     ]
 }
+
+movie_list = data['results']
+# 1
+for movie in movie_list:
+    if movie['vote_average'] > 7:
+        print(movie['title'])
+print('*'*20)
+# 2
+for movie in movie_list:
+    if movie['adult'] == True:
+        print(movie['title'])
+print('*'*20)
+
+# 3
+genre = int(input('enter a genre'))
+for movie in movie_list:
+    if genre in movie['genres']:
+        print(movie['title'])
