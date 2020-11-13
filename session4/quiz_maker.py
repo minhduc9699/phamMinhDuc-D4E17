@@ -1,4 +1,8 @@
-import pyexcel
+from pymongo import MongoClient
+
+client = MongoClient('localhost', 27017)
+quiz_database = client.get_database('quiz')
+quizzes_collection = quiz_database.get_collection('quizzes')
 
 quizzes = [
     {
@@ -22,11 +26,12 @@ quizzes = [
         ]
     }
 ]
+quizzes_collection.insert_many(quizzes)
 
-for quizz in quizzes:
-    choice_string = ''
-    for choice in quizz['choices']:
-        choice_string = choice_string + choice + ','
-    quizz['choices'] = choice_string
-    print(choice_string)
-pyexcel.save_as(records=quizzes, dest_file_name='quiz.xls')
+# for quizz in quizzes:
+#     quizzes_collection.insert_one(quizz)
+    # choice_string = ''
+    # for choice in quizz['choices']:
+    #     choice_string = choice_string + choice + ','
+    # quizz['choices'] = choice_string
+    # print(choice_string)
