@@ -82,21 +82,3 @@ data = {
         },
     ]
 }
-
-movie_list = data['results']
-# 1
-for movie in movie_list:
-    if movie['vote_average'] > 7:
-        print(movie['title'])
-print('*'*20)
-# 2
-for movie in movie_list:
-    if movie['adult'] == True:
-        print(movie['title'])
-print('*'*20)
-
-# 3
-genre = int(input('enter a genre'))
-for movie in movie_list:
-    if genre in movie['genres']:
-        print(movie['title'])
