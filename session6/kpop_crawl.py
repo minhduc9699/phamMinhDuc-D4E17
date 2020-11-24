@@ -24,6 +24,13 @@ for idol in idols:
     person_data = {}
     for i in range(len(idol_info)):
         if i in label_map:
+            a_tag = idol_info[i].find('a')
+            if a_tag: # check if idol have profile page
+                profile_page = requests.get(a_tag['href'])
+                profile_page_content = BeautifulSoup(profile_page.text)
+                thumbnail_div = profile_page_content.find('div', {'class': 'post-thumbnail'})
+                img_tag = thumbnail_div.find('img')
+                person_data['thumbnail'] = img_tag['src']
             key = label_map[i]
             person_data[key] = idol_info[i].text
     print(person_data)
