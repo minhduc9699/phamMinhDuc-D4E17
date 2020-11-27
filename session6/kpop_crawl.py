@@ -2,6 +2,12 @@ import requests
 from bs4 import BeautifulSoup
 from pymongo import MongoClient
 
+client = MongoClient('10.1.9.62', 27017)
+
+db = client.get_database('kpopdatabase1')
+
+collection = db.get_collection('kpop_idol')
+
 web = requests.get('https://dbkpop.com/db/all-k-pop-idols')
 
 web_content = BeautifulSoup(web.text)
@@ -14,7 +20,7 @@ label_map = {
     1: 'stage_name',
     2: 'full_name',
     3: 'korean_name',
-    4: 'k.stage_name',
+    4: 'k_stage_name',
     9: 'height',
     10: 'weight'
 }
@@ -33,4 +39,4 @@ for idol in idols:
                 person_data['thumbnail'] = img_tag['src']
             key = label_map[i]
             person_data[key] = idol_info[i].text
-    print(person_data)
+    collection.insert_one(person_data)
