@@ -59,7 +59,7 @@ cursor.execute('''
     CREATE TABLE video_game_sales.video_game_sales(
         video_game_id INT(11),
         region_id INT(11),
-        sales DECIMAL(9,0),
+        sales DECIMAL(9,2),
         FOREIGN KEY (video_game_id) REFERENCES video_game_sales.video_game (id),
         FOREIGN KEY (region_id) REFERENCES video_game_sales.region (id),
         PRIMARY KEY (video_game_id, region_id)
